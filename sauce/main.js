@@ -10,7 +10,7 @@ const aspectRatio = window.innerWidth / window.innerHeight;
 function init() {
   scene = new THREE.Scene();
 
-  camera = new THREE.PerspectiveCamera(70, aspectRatio, 0.1, 2000);
+  camera = new THREE.PerspectiveCamera(45, aspectRatio, 0.1, 2000);
   camera.position.set(-64, 256, 256);
   camera.lookAt(0,0,0);
 
@@ -51,6 +51,7 @@ function init() {
 
   const orbitControls = new CONTROLS.OrbitControls(camera, renderer.domElement);
   orbitControls.target = new THREE.Vector3(0, 0, 0);
+  orbitControls.enablePan = false;
 
   document.getElementById("decks-header").addEventListener("click", function(){
     if(document.getElementById("deck-selection").style.display === "block"){
