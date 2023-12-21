@@ -1,13 +1,41 @@
 import * as THREE from 'three';
-import * as CONTROLS from 'controls';
+import * as CONTROLS from '/libraries/three.js-r157/examples/jsm/controls/OrbitControls.js';
 
-import DeckFromFile from "./objects/DeckFromFile.js";
+import DeckFromFile from "../sauce/objects/DeckFromFile.js";
+import TrucksMaterialContainer from "../sauce/objects/TrucksMaterialContainer.js"
+import {TrucksCollection} from "./objects/TrucksCollection.js";
+import {ComponentController} from "./objects/ComponentController.js";
+import {WheelsCollection} from "./objects/WheelsCollection.js";
+import {BearingsCollection} from "./objects/BearingsCollection.js";
+import {GripTapeCollection} from "./objects/GripTapeCollection.js";
+import {SpacersCollection} from "./objects/SpacersCollection.js";
+//import BearingsMaterialContainer from "../sauce/objects/BearingsMaterialContainer.js"
+//import RiserMaterialContainer from "../sauce/objects/RiserMaterialContainer.js"
 
 let container;
 let scene, camera, renderer;
-const aspectRatio = window.innerWidth / window.innerHeight;
+let orbitControls;
+let aspectRatio = window.innerWidth / window.innerHeight;
+let deckFromFile = new DeckFromFile();
+
+let componentController = new ComponentController();
+
+let trucksCollection = new TrucksCollection();
+let wheelsCollection = new WheelsCollection();
+let bearingsCollection = new BearingsCollection();
+let gripTapeCollection = new GripTapeCollection();
+let spacersCollection = new SpacersCollection();
+
+let t = 0;
 
 function init() {
+  initDeckCatalogue();
+  initTrucksCatalogue();
+  initWheelsCatalogue();
+  initBearingsCatalogue();
+  initGripTapeCatalogue();
+  initSpacersCatalogue();
+
   scene = new THREE.Scene();
 
   camera = new THREE.PerspectiveCamera(45, aspectRatio, 0.1, 2000);
@@ -23,64 +51,149 @@ function init() {
   renderer.shadowMapEnabled = true;
 
   container.appendChild(renderer.domElement);
-  //document.getElementById("3d_content").appendChild(renderer.domElement);
 
-  const ambientLight = new THREE.AmbientLight(0xffffff, 0.7);
+  const ambientLight = new THREE.AmbientLight(0xffffff, 0.3);
   scene.add( ambientLight );
 
-  const deck = new DeckFromFile();
-  deck.scale.set(120,120,120);
-  scene.add(deck);
+  deckFromFile.scale.set(120,120,120);
+  scene.add(deckFromFile);
 
-  const directionalLight = new THREE.DirectionalLight(0xffffff, 0.7);
-  directionalLight.target = deck;
+  const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
+  directionalLight.target = deckFromFile;
   scene.add(directionalLight);
 
-  const cubeGeometry = new THREE.BoxGeometry(20,20,20);
-  const cubeMaterial = new THREE.MeshPhongMaterial({color: 0x000000});
-  const cube = new THREE.Mesh(cubeGeometry, cubeMaterial);
-  cube.position.set(0,10,0);
-  //scene.add( cube );
-
-  /*
-  const folder = gui.addFolder("Cube-Scale");
-  folder.add(cube.scale, "x", 1, 10).step(1);
-  folder.add(cube.scale, "y", 1, 10).step(1);
-  folder.add(cube.scale, "z", 1, 10).step(1);
-  */
-
-  const orbitControls = new CONTROLS.OrbitControls(camera, renderer.domElement);
-  orbitControls.target = new THREE.Vector3(0, 0, 0);
+  orbitControls = new CONTROLS.OrbitControls(camera, renderer.domElement);
+  //orbitControls.target = new THREE.Vector3(0, 0, 0);
   orbitControls.enablePan = false;
 
-  document.getElementById("decks-header").addEventListener("click", function(){
-    if(document.getElementById("deck-selection").style.display === "block"){
-      document.getElementById("deck-selection").style.display = "none";
-    } else {
-      document.getElementById("deck-selection").style.display = "block";
-    }
+  document.getElementById("toggle_animation").addEventListener("click", function(){
+    toggleAnimation();
   });
-
-  document.getElementById("deck1").addEventListener("click", function (){
-    //deck.scale.set(60,60,60);
-    deck.updateTexture(document.getElementById("deck1").getAttribute("src")); //document.getElementById("deck1").getAttribute("src")
+  document.getElementById("cam_1").addEventListener("click", function(){
+    cameraAngle(0);
   });
-  document.getElementById("deck2").addEventListener("click", function (){
-    //deck.scale.set(60,60,60);
-    deck.updateTexture(document.getElementById("deck2").getAttribute("src"));
+  document.getElementById("cam_2").addEventListener("click", function(){
+    cameraAngle(1);
+  });
+  document.getElementById("cam_3").addEventListener("click", function(){
+    cameraAngle(2);
   });
 }
 
+function updateAspectRatio(){
+  container = document.getElementById('three_content');
+  camera.aspect = container.scrollWidth / container.scrollHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(container.scrollWidth, container.scrollHeight);
+}
+
 function main() {
-
-
+  init();
   function mainLoop() {
-    renderer.render(scene, camera);
     requestAnimationFrame(mainLoop);
+    orbitControls.update();
+
+    deckFromFile.rotation.x += t;
+    //deckFromFile.rotation.y += 0.01;
+
+    renderer.render(scene, camera);
   }
 
   mainLoop();
 }
 
-init();
-main();
+function cameraAngle(i){
+  switch(i){
+    case 0:
+      camera.position.set(-64, 256, 256);
+      camera.lookAt(0,0,0);
+      break;
+    case 1:
+      camera.position.set(400, 128, 0);
+      camera.lookAt(0,0,0);
+      break;
+    case 2:
+      camera.position.set(0, 128, 400);
+      camera.lookAt(0,0,0);
+      break;
+    default:
+      camera.position.set(-64, 256, 256);
+      camera.lookAt(0,0,0);
+      break;
+  }
+}
+
+function toggleAnimation(){
+  if(t == 0){
+    t = 0.01;
+  } else {
+    t = 0;
+  }
+}
+
+function initDeckCatalogue() {
+  for(const deck of componentController.deck_catalogue){
+    deck.addEventListener("click", function() {
+      deckFromFile.upgradeDeckTexture(document.getElementById(deck.getAttribute("id")).querySelector(".product-picture").getAttribute("src"));
+      componentController.selectDeck(deck.getAttribute("id"));
+    });
+  }
+}
+
+function initTrucksCatalogue() {
+  let i = 0;
+  for(const trucks of componentController.trucks_catalogue){
+    trucks.addEventListener("click", function() {
+      deckFromFile.updateTrucksMaterials(trucksCollection.getTrucks(i));
+      componentController.selectTrucks(trucks.getAttribute("id"));
+      i++;
+    });
+  }
+}
+
+function initWheelsCatalogue() {
+  let i = 0;
+  for(const wheels of componentController.wheels_catalogue){
+    wheels.addEventListener("click", function() {
+      deckFromFile.updateWheelsMaterial(wheelsCollection.getWheels(i));
+      componentController.selectWheels(wheels.getAttribute("id"));
+      i++;
+    });
+  }
+}
+
+function initBearingsCatalogue() {
+  let i = 0;
+  for(const bearings of componentController.bearings_catalogue){
+    bearings.addEventListener("click", function() {
+      deckFromFile.updateBearingsMaterials(bearingsCollection.getBearings(i));
+      componentController.selectBearings(bearings.getAttribute("id"));
+      i++;
+    });
+  }
+}
+
+function initGripTapeCatalogue() {
+  let i = 0;
+  for(const grip of componentController.grip_catalogue){
+    grip.addEventListener("click", function() {
+      deckFromFile.updateGripMaterial(gripTapeCollection.getGrip(i));
+      componentController.selectGrip(grip.getAttribute("id"));
+      i++;
+    });
+  }
+}
+
+function initSpacersCatalogue() {
+  let i = 0;
+  for(const spacers of componentController.spacers_catalogue){
+    spacers.addEventListener("click", function() {
+      deckFromFile.updateSpacersMaterial(spacersCollection.getSpacers(i));
+      componentController.selectSpacers(spacers.getAttribute("id"));
+      i++;
+    });
+  }
+}
+
+window.onload = main();
+window.onresize = updateAspectRatio();

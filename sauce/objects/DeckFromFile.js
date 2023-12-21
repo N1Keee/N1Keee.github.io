@@ -1,5 +1,6 @@
 import * as THREE from 'three';
-import {GLTFLoader} from 'gltfloader';
+import {GLTFLoader} from '../../libraries/three.js-r157/examples/jsm/loaders/GLTFLoader.js';
+import TrucksMaterialContainer from "./TrucksMaterialContainer.js";
 
 export default class DeckFromFile extends THREE.Group {
 
@@ -12,7 +13,7 @@ export default class DeckFromFile extends THREE.Group {
   }
 
   load(thisDeck){
-    this.gltfLoader.load('sauce/models/deck4.gltf', function(gltf){
+    this.gltfLoader.load('sauce/models/SkateboardNamed 1.gltf', function(gltf){
       gltf.scene.traverse(function(child){
         if(child.isMesh){
           child.parentDeck = thisDeck;
@@ -26,24 +27,71 @@ export default class DeckFromFile extends THREE.Group {
     });
   }
 
-  updateTexture(pathToTexture){
-    console.log("updating texture...");
-    let texture = this.textureLoader.load(pathToTexture);
-    console.log(pathToTexture);
+  upgradeDeckTexture(path){
+    console.log(path);
+    let texture = this.textureLoader.load(path);
     texture.wrapS = THREE.RepeatWrapping;
     texture.wrapT = THREE.RepeatWrapping;
     texture.repeat.set(-1,1);
     for(const element of this.meshes){
-      if(element.material.name === 'deck-graphic'){
+      if(element.material.name === 'DeckM'){
         element.material.map = texture;
       }
     }
   }
 
-  upgradeTexture2(){
-    for(const element of this.meshes){
-      if(element.material.name === 'deck-graphic'){
-        element.material.color = 0xffffff;
+  updateTrucksMaterials(trucksMaterialContainer){
+    if(!(trucksMaterialContainer instanceof TrucksMaterialContainer)){
+      return;
+    } else {
+      for(const element of this.meshes){
+        if(element.material.name === 'TruckMainM'){
+          element.material = trucksMaterialContainer.mainMaterial;
+        }
+        if(element.material.name === 'TruckBaseM'){
+          element.material = trucksMaterialContainer.basePlateMaterial;
+        }
+        if(element.material.name === 'BaseScrewsM'){
+          element.material = trucksMaterialContainer.baseScrewsMaterial;
+        }
+        if(element.material.name === 'BushingM'){
+          element.material = trucksMaterialContainer.bushingMaterial;
+        }
+        if(element.material.name === 'OuterNutsM'){
+          element.material = trucksMaterialContainer.nutsMaterial;
+        }
+      }
+    }
+  }
+
+  updateWheelsMaterial(wheelM){
+    for(const element of this.meshes) {
+      if (element.material.name === 'WheelM') {
+        element.material = wheelM;
+      }
+    }
+  }
+
+  updateBearingsMaterials(bearingM){
+    for(const element of this.meshes) {
+      if (element.material.name === 'BearingM') {
+        element.material = bearingM;
+      }
+    }
+  }
+
+  updateGripMaterial(gripTapeM){
+    for(const element of this.meshes) {
+      if (element.material.name === 'GripTapeM') {
+        element.material = gripTapeM;
+      }
+    }
+  }
+
+  updateSpacersMaterial(spacersM){
+    for(const element of this.meshes) {
+      if (element.material.name === 'SpacersM') {
+        element.material = spacersM;
       }
     }
   }
