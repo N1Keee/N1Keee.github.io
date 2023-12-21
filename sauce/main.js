@@ -56,6 +56,7 @@ function init() {
   scene.add( ambientLight );
 
   deckFromFile.scale.set(120,120,120);
+  deckFromFile.upgradeDeckTexture(deckFromFile.getTextureFromPath("bla"));
   scene.add(deckFromFile);
 
   const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
@@ -134,7 +135,8 @@ function toggleAnimation(){
 function initDeckCatalogue() {
   for(const deck of componentController.deck_catalogue){
     deck.addEventListener("click", function() {
-      deckFromFile.upgradeDeckTexture(document.getElementById(deck.getAttribute("id")).querySelector(".product-picture").getAttribute("src"));
+      deckFromFile.upgradeDeckTexture(deckFromFile.getTextureFromPath(document.getElementById(deck.getAttribute("id")).querySelector(".product-picture").getAttribute("src")));
+      //deckFromFile.upgradeDeckTexture(document.getElementById(deck.getAttribute("id")).querySelector(".product-picture").getAttribute("src"));
       componentController.selectDeck(deck.getAttribute("id"));
     });
   }

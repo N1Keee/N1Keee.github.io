@@ -4,12 +4,16 @@ import TrucksMaterialContainer from "./TrucksMaterialContainer.js";
 
 export default class DeckFromFile extends THREE.Group {
 
+  deckItemProductPicturePaths = [];
+  deckItemTextures = [];
+
   constructor(){
     super();
     this.gltfLoader = new GLTFLoader();
     this.textureLoader = new THREE.TextureLoader();
     this.meshes = [];
     this.load(this);
+    this.initDeckTextures();
   }
 
   load(thisDeck){
@@ -38,6 +42,18 @@ export default class DeckFromFile extends THREE.Group {
         element.material.map = texture;
       }
     }
+  }
+
+  getTextureFromPath(path) {
+    let i = 0;
+    for(const p of this.deckItemProductPicturePaths){
+      if(p == path){
+        return this.deckItemTextures[i];
+      } else {
+        i++;
+      }
+    }
+    return 'sauce/textures/default-deck.png';
   }
 
   updateTrucksMaterials(trucksMaterialContainer){
@@ -93,6 +109,21 @@ export default class DeckFromFile extends THREE.Group {
       if (element.material.name === 'SpacersM') {
         element.material = spacersM;
       }
+    }
+  }
+
+  initDeckTextures(){
+    let deckItems = document.getElementsByClassName("deck-item");
+    for(const element of deckItems){
+      this.deckItemProductPicturePaths.push(element.querySelector(".product-picture").getAttribute("src"))
+    }
+    this.deckItemTextures = [  // hardcode each texture-path
+      'sauce/textures/alien-workshop-deck.jpg',
+      'sauce/textures/blind-deck-cody.jpg'
+    ];
+
+    for(let i = 0; i<deckItems.length;i++){
+      console.log(this.deckItemProductPicturePaths[i] + this.deckItemTextures[i]);
     }
   }
 }
