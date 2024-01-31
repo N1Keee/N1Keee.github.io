@@ -48,8 +48,8 @@ function init() {
 
   camera = new THREE.PerspectiveCamera(45, aspectRatio, 0.1, 2000);
   //camera.position.set(-1, 2, 2);
-  camera.position.set(0, -3, 0);
-  //camera.position.set(0, 0, 3.5);
+  //camera.position.set(0, -3, 0);
+  camera.position.set(0, 0, 3.5);
   camera.lookAt(0,0,0);
 
   container = document.getElementById('three_content');
@@ -88,8 +88,8 @@ function init() {
   //deckFromFile.scale.set(120,120,120);
   deckFromFile.position.set(0,0,0);
   riserFromFile.position.set(0,0.001,0);
-  //deckFromFile.rotation.set(THREE.MathUtils.degToRad(-135),0,0);
-  //riserFromFile.rotation.set(THREE.MathUtils.degToRad(-135),0,0);
+  deckFromFile.rotation.set(THREE.MathUtils.degToRad(-90),0,0);
+  riserFromFile.rotation.set(THREE.MathUtils.degToRad(-90),0,0);
 
   scene.add(deckFromFile);
 
