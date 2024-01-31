@@ -30,6 +30,7 @@ let t = 0;
 
 function init() {
   initDeckCatalogue();
+  deckFromFile.upgradeDeckTexture(deckFromFile.getTextureFromPath("lol"));
   initTrucksCatalogue();
   initWheelsCatalogue();
   initBearingsCatalogue();
@@ -56,7 +57,7 @@ function init() {
   scene.add( ambientLight );
 
   deckFromFile.scale.set(120,120,120);
-  deckFromFile.upgradeDeckTexture(deckFromFile.getTextureFromPath("bla"));
+  //console.log(document.getElementById("deck.001").querySelector(".product-picture").getAttribute("src"));
   scene.add(deckFromFile);
 
   const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
@@ -133,6 +134,7 @@ function toggleAnimation(){
 }
 
 function initDeckCatalogue() {
+  deckFromFile.initDeckTextures();
   for(const deck of componentController.deck_catalogue){
     deck.addEventListener("click", function() {
       deckFromFile.upgradeDeckTexture(deckFromFile.getTextureFromPath(document.getElementById(deck.getAttribute("id")).querySelector(".product-picture").getAttribute("src")));

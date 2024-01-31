@@ -13,7 +13,7 @@ export default class DeckFromFile extends THREE.Group {
     this.textureLoader = new THREE.TextureLoader();
     this.meshes = [];
     this.load(this);
-    this.initDeckTextures();
+    //this.initDeckTextures();
   }
 
   load(thisDeck){
@@ -47,13 +47,16 @@ export default class DeckFromFile extends THREE.Group {
   getTextureFromPath(path) {
     let i = 0;
     for(const p of this.deckItemProductPicturePaths){
-      if(p == path){
-        return this.deckItemTextures[i];
+      if(i < this.deckItemProductPicturePaths.length){
+        if(p === path){
+          return this.deckItemTextures[i];
+        } else {
+          i++;
+        }
       } else {
-        i++;
+        return "/textures/default-deck.png";
       }
     }
-    return 'sauce/textures/default-deck.png';
   }
 
   updateTrucksMaterials(trucksMaterialContainer){
@@ -115,7 +118,8 @@ export default class DeckFromFile extends THREE.Group {
   initDeckTextures(){
     let deckItems = document.getElementsByClassName("deck-item");
     for(const element of deckItems){
-      this.deckItemProductPicturePaths.push(element.querySelector(".product-picture").getAttribute("src"))
+      this.deckItemProductPicturePaths.push(element.querySelector(".product-picture").getAttribute("src"));
+      console.log(element.id);
     }
     this.deckItemTextures = [  // hardcode each texture-path
       'sauce/textures/alien-workshop-deck.jpg',
