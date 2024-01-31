@@ -291,7 +291,7 @@ function selectedPartsOnClickEvents(){
   });
   componentController.selectedGrip.addEventListener("click", function(){
     componentController.deselectGrip();
-    deckFromFile.updateGripMaterial(gripTapeCollection.defaultGrip);
+    deckFromFile.updateGripMaterial(deckFromFile.noGripMaterial);
   });
   componentController.selectedRisers.addEventListener("click", function(){
     componentController.deselectRisers();
