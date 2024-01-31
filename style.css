@@ -65,6 +65,9 @@ div.header {
     text-align: center;
     caret-color: transparent;
     cursor: default;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 #navigation-header {
