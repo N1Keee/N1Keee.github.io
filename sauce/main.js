@@ -63,17 +63,6 @@ function init() {
 
   container.appendChild(renderer.domElement);
 
-  /*
-  const loader = new THREE.CubeTextureLoader();
-  loader.setPath('src/textures/cube-map/');
-
-  const texture = loader.load([
-    'posx.png', 'negx.png',
-    'posy.png', 'negy.png',
-    'posz.png', 'negz.png'
-  ]);
-  scene.background = texture;
-  */
   const ambientLight = new THREE.AmbientLight(0xffffff, 2);
   scene.add( ambientLight );
 

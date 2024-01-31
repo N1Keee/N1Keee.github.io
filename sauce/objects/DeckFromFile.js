@@ -204,10 +204,12 @@ export default class DeckFromFile extends THREE.Group {
       if(this.smallDeck && !this.smallTrucks){
         //document.getElementById("compatible").style.visibility = 'visible';
         document.getElementById("compatible").innerHTML = "We recommend matching Deck and Truck sizes";
+        document.getElementById("compatible").style.color = "deeppink";
         this.compatible = false;
       } else {
         //document.getElementById("compatible").style.visibility = 'visible';
         document.getElementById("compatible").innerHTML = "We recommend matching Deck and Truck sizes";
+        document.getElementById("compatible").style.color = "deeppink";
         this.compatible = false;
       }
     }
