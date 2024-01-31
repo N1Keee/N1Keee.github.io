@@ -44,12 +44,12 @@ function init() {
   selectedPartsOnClickEvents();
 
   scene = new THREE.Scene();
-  scene.add(new THREE.AxesHelper(50));
+  //scene.add(new THREE.AxesHelper(50));
 
   camera = new THREE.PerspectiveCamera(45, aspectRatio, 0.1, 2000);
   //camera.position.set(-1, 2, 2);
   //camera.position.set(0, -3, 0);
-  camera.position.set(0, 0, 4);
+  camera.position.set(0, 0, 3.5);
   camera.lookAt(0,0,0);
 
   container = document.getElementById('three_content');

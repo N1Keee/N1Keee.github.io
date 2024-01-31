@@ -67,6 +67,7 @@ div.header {
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
 }
 
 #navigation-header {
@@ -99,6 +100,7 @@ div.navigation {
     justify-content: center;
     overflow: hidden;
     min-height: auto;
+    font-size: large;
 }
 a {
     line-height: 200%;
@@ -237,8 +239,8 @@ img.product-picture {
 p.product-name {
     color: black;
     caret-color: transparent;
-    line-height: 50%;
-    font-size: small;
+    line-height: 0%;
+    font-size: medium;
     font-family: 'Roboto Condensed', sans-serif;
 }
 
@@ -246,7 +248,7 @@ p.product-price {
     color: black;
     caret-color: transparent;
     line-height: 50%;
-    font-size: small;
+    font-size: medium;
     font-family: 'Roboto Condensed', sans-serif;
 }
 
@@ -403,7 +405,7 @@ p.total-sum {
     margin: auto;
     color: black;
     font-family: 'Roboto Condensed', sans-serif;
-    font-size: large;
+    font-size: xx-large;
 }
 
 div.main-logo {
