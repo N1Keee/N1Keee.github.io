@@ -4,7 +4,7 @@ export class BearingsCollection {
 
   bearings = [];
 
-  defaultBearings = new THREE.MeshStandardMaterial({color:0xffffff, metalness:0,roughness:0, name: 'BearingM'});
+  defaultBearings = new THREE.MeshStandardMaterial({color:0xdddddd, metalness:0,roughness:0, name: 'BearingM'});
 
   constructor() {
     this.initializeCollection();

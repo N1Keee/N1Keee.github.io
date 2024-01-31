@@ -8,9 +8,9 @@ export class TrucksCollection {
   small_trucks = [];
 
   defaultTrucks = new TrucksMaterialContainer(
-      new THREE.MeshStandardMaterial({color:0xffffff, metalness:0,roughness:0,flatShading:false}), //main
+      new THREE.MeshStandardMaterial({color:0xeeeeee, metalness:0,roughness:0,flatShading:false}), //main
       new THREE.MeshStandardMaterial({color:0xffffff, metalness:0,roughness:0,flatShading:false}), //base
-      new THREE.MeshStandardMaterial({color:0xffffff, metalness:0,roughness:0,flatShading:false}), //screws
+      new THREE.MeshStandardMaterial({color:0x111111, metalness:0,roughness:0,flatShading:false}), //screws
       new THREE.MeshStandardMaterial({color:0xffffff, metalness:0,roughness:0,flatShading:false}), //bushings
       new THREE.MeshStandardMaterial({color:0xffffff, metalness:0,roughness:0,flatShading:false})  //nuts
   );
