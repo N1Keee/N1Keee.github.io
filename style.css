@@ -4,7 +4,7 @@ body {
     width: 100%;
     overflow: hidden;
     cursor: default;
-    font-family: Roboto;
+    font-family: 'Roboto Condensed', sans-serif;
     caret-color: transparent;
 }
 
@@ -13,8 +13,9 @@ h2 {
     text-align: center;
     caret-color: transparent;
     cursor: default;
-    font-size: x-large;
+    font-size: xx-large;
     color: deeppink;
+    font-family: 'Luckiest Guy', cursive;
 }
 
 div.main-logo {
@@ -236,6 +237,7 @@ p.product-name {
     caret-color: transparent;
     line-height: 50%;
     font-size: small;
+    font-family: 'Roboto Condensed', sans-serif;
 }
 
 p.product-price {
@@ -243,6 +245,7 @@ p.product-price {
     caret-color: transparent;
     line-height: 50%;
     font-size: small;
+    font-family: 'Roboto Condensed', sans-serif;
 }
 
 div.skateboard-view {
@@ -388,7 +391,7 @@ p.total-sum {
     position:relative;
     margin: auto;
     color: black;
-    font-family: Calibri;
+    font-family: 'Roboto Condensed', sans-serif;
     font-size: large;
 }
 
