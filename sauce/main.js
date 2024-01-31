@@ -313,14 +313,6 @@ function selectedPartsOnClickEvents(){
   });
 }
 
-function initBoard(){
-  deckFromFile.upgradeDeckTexture("sauce/textures/dd-default.png");
-  deckFromFile.updateTrucksMaterials(trucksCollection.defaultTrucks);
-  deckFromFile.updateWheelsMaterial(wheelsCollection.defaultWheels);
-  deckFromFile.updateBearingsMaterials(bearingsCollection.defaultBearings);
-  deckFromFile.updateGripMaterial(gripTapeCollection.defaultGrip);
-}
-
 function addRisers(){
   if(!deckFromFile.hasRiser){
     scene.add(riserFromFile);
