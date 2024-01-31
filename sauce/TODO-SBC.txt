@@ -1,0 +1,22 @@
+UpdateComponentMethods() -> onClick
+
+"selected-parts": deck, truck,... -item placeholder   + Selection.js   
+	
+	?) 	ConfigurationManager.js   knows each doc-element and stores product-information inside itself
+		later used for displaying each component inside "selected-parts"-div.
+		struct(Component) type, name, price, picture
+
+fix UpdateAspectRatio()? diagonal adjustment (always 16:9) 
+
+
+- Default auto-rotate OrbitControls when site is launched ()
+- Bumpmap Griptape
+- Shadows
+- Rendering settings: materials look kinda shit atm...
+- logos on Trucks and wheels
+
+- fonts includen
+
+
+
+

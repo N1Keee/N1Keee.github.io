@@ -16,5 +16,11 @@ export default class TrucksMaterialContainer{
     this.baseScrewsMaterial = truckScrewsM;
     this.bushingMaterial = truckBushingsM;
     this.nutsMaterial = truckNutsM;
+
+    this.mainMaterial.name = "TruckMainM";
+    this.basePlateMaterial.name = "TruckBaseM";
+    this.baseScrewsMaterial.name = "BaseScrewsM";
+    this.bushingMaterial.name = "BushingM";
+    this.nutsMaterial.name = "OuterNutsM";
   }
 }

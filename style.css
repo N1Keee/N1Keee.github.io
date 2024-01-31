@@ -1,73 +1,143 @@
 body {
+    background-color: #40443b;
     height: 100%;
+    width: 100%;
     overflow: hidden;
+    cursor: default;
+    font-family: Roboto;
+    caret-color: transparent;
 }
 
-div.flex-container {
-    margin-left: 1%;
-    margin-right: 1%;
-    width: auto;
-    height:85%;
-    display: flex;
+h2 {
+    position: relative;
+    text-align: center;
+    caret-color: transparent;
+    cursor: default;
+    font-size: x-large;
+    color: deeppink;
+}
+
+div.main-logo {
+    background-color: #22c0c4;
     position: absolute;
+    top:1%;
+    width:100%;
+    height:5%;
 }
 
 img.main-logo {
-    width: 793px;
-    height: 86px;
+    position: relative;
+    top:0%;
+    width:25%;
     object-fit: scale-down;
 }
 
-div.navigation {
+div.head-container {
+    background-color: #40443b;
+    top:7%;
+    left: 0%;
+    width: 100%;
+    height: 7%;
+    display: flex;
+    position: absolute;
+    column-gap: 1%;
+    /*column-gap: 16px;*/
+}
+
+div.flex-container {
+    background-color: #51554d;
+    bottom: 1%;
+    left: 0%;
+    width: 100%;
+    height: 85%;
+    margin: auto;
+    display: flex;
+    position: absolute;
+    column-gap: 1%;
+    /*column-gap: 16px;*/
+}
+
+div.header {
+    height: 100%;
+    background-color: #c3c4c1;
     position: relative;
+    text-align: center;
+    caret-color: transparent;
+    cursor: default;
+}
+
+#navigation-header {
+    width: 8%;
+    left:0.8%;
+    /*margin-left: 16px;*/
+}
+#products-header {
+    width: 30%;
+}
+#skateboard-header {
+    width: 60%;
+    right: 0.8%;
+    /*margin-right: 16px;*/
+}
+
+div.navigation {
+    background-color: #dfdfdd;
+    position: relative;
+    left:0.8%;
+    /*margin-left: 16px;*/
     /*display: flex;*/
-    text-align: left;
-    padding-left: 8px;
-    padding-right: 8px;
+    text-align: center;
     /*border: 2px solid black;*/
     /*background-color: #0d3349;*/
-    width: 5%;
-    height: auto;
-    float: left;
+    width: 8%;
+    height: 30%;
+    caret-color: transparent;
+    cursor: default;
+    justify-content: center;
+    overflow: hidden;
+    min-height: auto;
 }
 a {
     line-height: 200%;
     text-decoration: none;
-    color: darkgrey;
+    color: black;
 }
 a:hover{
     color: lightskyblue;
 }
 
 .product-header {
-    margin-left: 8px;
-    color: darkgrey;
+    margin-left: auto;
+    color: black;
     cursor: default;
     caret-color: transparent;
 }
 
 div.products {
+    background-color: #dfdfdd;
     position: relative;
+    text-align: center;
     /*display: flex;*/
-    border: 2px solid grey;
-    margin-top: 1%;
-    margin-bottom: 1%;
-    float: left;
-    left: 20px;
-    width: 33%;
-    height: auto;
+    width: 30%;
+    height: 100%;
     overflow-y: scroll;
+    cursor: default;
 }
 
 div.product-category {
+    margin: auto;
     display: flex;
     flex-wrap: wrap;
+    row-gap: 8px;
+    column-gap: 8px;
+    justify-content: center;
 }
 
 div.deck-item {
+    background-color: white;
     border: 2px solid grey;
-    border-radius: 8px;
-    margin: 8px;
+    border-radius: 4px;
+    margin:4px;
     width: 180px;
     height: 180px;
     text-align: center;
@@ -79,9 +149,10 @@ div.deck-item:hover {
 }
 
 div.truck-item {
+    background-color: white;
     border: 2px solid grey;
-    border-radius: 8px;
-    margin: 8px;
+    border-radius: 4px;
+    margin:4px;
     width: 180px;
     height: 180px;
     text-align: center;
@@ -93,9 +164,10 @@ div.truck-item:hover {
 }
 
 div.wheel-item {
+    background-color: white;
     border: 2px solid grey;
-    border-radius: 8px;
-    margin: 8px;
+    border-radius: 4px;
+    margin:4px;
     width: 180px;
     height: 180px;
     text-align: center;
@@ -107,9 +179,10 @@ div.wheel-item:hover {
 }
 
 div.bearing-item {
+    background-color: white;
     border: 2px solid grey;
-    border-radius: 8px;
-    margin: 8px;
+    border-radius: 4px;
+    margin:4px;
     width: 180px;
     height: 180px;
     text-align: center;
@@ -121,9 +194,10 @@ div.bearing-item:hover {
 }
 
 div.grip-tape-item {
+    background-color: white;
     border: 2px solid grey;
-    border-radius: 8px;
-    margin: 8px;
+    border-radius: 4px;
+    margin:4px;
     width: 180px;
     height: 180px;
     text-align: center;
@@ -134,21 +208,23 @@ div.grip-tape-item:hover {
     border: 2px solid lightskyblue;
 }
 
-div.spacer-item {
+div.riser-item {
+    background-color: white;
     border: 2px solid grey;
-    border-radius: 8px;
-    margin: 8px;
+    border-radius: 4px;
+    margin:4px;
     width: 180px;
     height: 180px;
     text-align: center;
     cursor: pointer;
     caret-color: transparent;
 }
-div.spacer-item:hover {
+div.riser-item:hover {
     border: 2px solid lightskyblue;
 }
 
 img.product-picture {
+    margin-top: 5%;
     position: relative;
     width: 120px;
     height: 120px;
@@ -156,148 +232,209 @@ img.product-picture {
 }
 
 p.product-name {
-    color: darkgrey;
-    cursor: default;
+    color: black;
     caret-color: transparent;
     line-height: 50%;
     font-size: small;
 }
 
 p.product-price {
-    color: darkgrey;
-    cursor: default;
+    color: black;
     caret-color: transparent;
     line-height: 50%;
     font-size: small;
 }
 
 div.skateboard-view {
-    border: 2px solid grey;
-    left: 2%;
-    margin-top: 1%;
-    margin-bottom: 1%;
-    margin-right: 1%;
-    width: 55%;
-    height: auto;
+    background-color: #dfdfdd;
+    /*left: 0%;*/
+    /*margin-right: 16px;*/
+    right: 0.8%;
+    width:60%;
+    /*width: 62%;
+    height: 100%;*/
     position: relative;
     display: flex;
     flex-wrap: wrap;
-    cursor: pointer;
+    cursor: default;
     caret-color: transparent;
+    /*justify-content: center;*/
 }
 
 div.three-content {
-    width:100%;
-    height:66%;
+    top: 1%;
+    left:2%;
+    width: 90%;
+    height: 60%;
     position: relative;
-    margin-left: 3%;
-    cursor: pointer;
+    cursor: url("sauce/pictures/controls-icons/orbitCursor32x32.png"),all-scroll;
     caret-color: transparent;
 }
 
 div.selected-parts {
     display: flex;
-    overflow-x: scroll;
+    /*overflow-y: visible;*/
     /*flex-direction: row;*/
+    top:1%;
     width:100%;
-    height:33%;
+    height: 25%;
     position: relative;
     cursor: pointer;
     caret-color: transparent;
+    /*flex-grow: 1;*/
+    justify-content: center;
+    overflow: hidden;
 }
 
 div.selected-deck {
+    background-color: white;
     border: 2px solid grey;
-    border-radius: 8px;
-    margin: 8px;
+    border-radius: 4px;
+    text-align: center;
     width: 180px;
     height: 180px;
-    text-align: center;
     cursor: pointer;
     caret-color: transparent;
-    flex-grow: 0;
-    flex-shrink: 0;
+    margin: 4px;
 }
 div.selected-deck:hover {
     border: 2px solid lightcoral;
 }
 
 div.selected-trucks {
+    background-color: white;
     border: 2px solid grey;
-    border-radius: 8px;
-    margin: 8px;
+    border-radius: 4px;
+    text-align: center;
     width: 180px;
     height: 180px;
-    text-align: center;
     cursor: pointer;
     caret-color: transparent;
-    flex-grow: 0;
-    flex-shrink: 0;
+    margin: 4px;
 }
 div.selected-trucks:hover {
     border: 2px solid lightcoral;
 }
 
 div.selected-wheels {
+    background-color: white;
     border: 2px solid grey;
-    border-radius: 8px;
-    margin: 8px;
+    border-radius: 4px;
+    text-align: center;
     width: 180px;
     height: 180px;
-    text-align: center;
     cursor: pointer;
     caret-color: transparent;
-    flex-grow: 0;
-    flex-shrink: 0;
+    margin: 4px;
 }
 div.selected-wheels:hover {
     border: 2px solid lightcoral;
 }
 
 div.selected-bearings {
+    background-color: white;
     border: 2px solid grey;
-    border-radius: 8px;
-    margin: 8px;
+    border-radius: 4px;
+    text-align: center;
     width: 180px;
     height: 180px;
-    text-align: center;
     cursor: pointer;
     caret-color: transparent;
-    flex-grow: 0;
-    flex-shrink: 0;
+    margin: 4px;
 }
 div.selected-bearings:hover {
     border: 2px solid lightcoral;
 }
 
 div.selected-grip {
+    background-color: white;
     border: 2px solid grey;
-    border-radius: 8px;
-    margin: 8px;
+    border-radius: 4px;
+    text-align: center;
     width: 180px;
     height: 180px;
-    text-align: center;
     cursor: pointer;
     caret-color: transparent;
-    flex-grow: 0;
-    flex-shrink: 0;
+    margin: 4px;
 }
 div.selected-grip:hover {
     border: 2px solid lightcoral;
 }
 
-div.selected-spacers {
+div.selected-risers {
+    background-color: white;
     border: 2px solid grey;
-    border-radius: 8px;
-    margin: 8px;
+    border-radius: 4px;
+    text-align: center;
     width: 180px;
     height: 180px;
-    text-align: center;
     cursor: pointer;
     caret-color: transparent;
-    flex-grow: 0;
-    flex-shrink: 0;
+    margin: 4px;
 }
-div.selected-spacers:hover {
+div.selected-risers:hover {
     border: 2px solid lightcoral;
+}
+
+div.check-out {
+    bottom: 1%;
+    display: flex;
+    position: relative;
+    width: 100%;
+    height: 5%;
+}
+
+p.total-sum {
+    position:relative;
+    margin: auto;
+    color: black;
+    font-family: Calibri;
+    font-size: large;
+}
+
+div.main-logo {
+    background-color: transparent;
+}
+
+button.toggle-spin {
+    position: absolute;
+    top: 1%;
+    right: 2%;
+    width: 4%;
+    height: 5%;
+    cursor: pointer;
+}
+img.start-stop-animation {
+    margin:auto;
+    height: 24px;
+    width: border-box;
+}
+#cam_1 {
+    position: absolute;
+    top: 7%;
+    right: 2%;
+    width: 4%;
+    height: 5%;
+    cursor: pointer;
+}
+#cam_2 {
+    position: absolute;
+    top: 13%;
+    right: 2%;
+    width: 4%;
+    height: 5%;
+    cursor: pointer;
+}
+#cam_3 {
+    position: absolute;
+    top: 19%;
+    right: 2%;
+    width: 4%;
+    height: 5%;
+    cursor: pointer;
+}
+img.skateboard-icon {
+    right:50%;
+    height: 24px;
+    width: 24px;
 }
