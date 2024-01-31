@@ -104,7 +104,7 @@ function init() {
   });
 
   document.getElementById("toggle_animation").addEventListener("click", function(){
-    //deckFromFile.updateGripMaterial(gripTapeCollection.defaultGrip);
+    deckFromFile.updateGripMaterial(gripTapeCollection.defaultGrip);
     toggleAnimation();
   });
   document.getElementById("cam_1").addEventListener("click", function(){
