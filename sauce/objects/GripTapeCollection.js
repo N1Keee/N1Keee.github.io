@@ -58,7 +58,7 @@ export class GripTapeCollection {
        roughness: 1
      });
 
-     let texture003 = this.textureLoader.load("/sauce/textures/griptapes/Griptape1.png");
+     let texture003 = this.textureLoader.load("/sauce/textures/griptapes/Griptape3.png");
      texture003.wrapS = THREE.repeatWrapping;
      texture003.wrapT = THREE.repeatWrapping;
      texture003.repeat.set(-1,1);
@@ -71,7 +71,7 @@ export class GripTapeCollection {
        color: 0x626262,
        roughness: 1
      });
-     let texture004 = this.textureLoader.load("/sauce/textures/griptapes/Griptape2.png");
+     let texture004 = this.textureLoader.load("/sauce/textures/griptapes/Griptape4.png");
      texture004.wrapS = THREE.repeatWrapping;
      texture004.wrapT = THREE.repeatWrapping;
      texture004.repeat.set(-1,1);
