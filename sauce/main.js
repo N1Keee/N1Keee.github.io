@@ -108,6 +108,7 @@ function init() {
   orbitControls = new CONTROLS.OrbitControls(camera, renderer.domElement);
   //orbitControls.target = new THREE.Vector3(0, 0, 0);
   orbitControls.enablePan = false;
+  orbitControls.enableZoom = false;
 
   window.addEventListener("resize", function(){
     updateAspectRatio();

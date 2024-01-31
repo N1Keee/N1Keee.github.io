@@ -29,13 +29,14 @@ export class GripTapeCollection {
    initializeCollection(){
      let bmp = this.textureLoader.load("/sauce/textures/GriptapeBumpmap.png");
 
-     //bmp.wrapS = THREE.repeatWrapping;
-     //bmp.wrapT = THREE.repeatWrapping;
+     bmp.wrapS = THREE.repeatWrapping;
+     bmp.wrapT = THREE.repeatWrapping;
+     bmp.repeat.set(8,2);
 
      let grip001 = new THREE.MeshStandardMaterial({
        name: 'GripTapeM',
        bumpMap: bmp,
-       bumpScale: 5,
+       bumpScale: 0.5,
        metalness: 0,
        color: 0x999999,
        roughness: 1
