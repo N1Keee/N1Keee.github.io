@@ -196,15 +196,17 @@ export default class DeckFromFile extends THREE.Group {
 
   checkCompatible(){
     if((this.smallDeck && this.smallTrucks)||(!this.smallDeck && !this.smallTrucks)){
-      document.getElementById("compatible").style.visibility = 'hidden';
+      //document.getElementById("compatible").style.visibility = 'visible';
+      document.getElementById("compatible").innerHTML = "Build compatible";
+      document.getElementById("compatible").style.color = "#22c0c4";
       this.compatible = true;
     } else {
       if(this.smallDeck && !this.smallTrucks){
-        document.getElementById("compatible").style.visibility = 'visible';
+        //document.getElementById("compatible").style.visibility = 'visible';
         document.getElementById("compatible").innerHTML = "We recommend matching Deck and Truck sizes";
         this.compatible = false;
       } else {
-        document.getElementById("compatible").style.visibility = 'visible';
+        //document.getElementById("compatible").style.visibility = 'visible';
         document.getElementById("compatible").innerHTML = "We recommend matching Deck and Truck sizes";
         this.compatible = false;
       }

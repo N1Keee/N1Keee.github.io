@@ -19,7 +19,6 @@ h2 {
 }
 
 div.main-logo {
-    background-color: #22c0c4;
     position: absolute;
     top:1%;
     width:100%;
@@ -383,6 +382,7 @@ div.selected-risers:hover {
 }
 
 div.check-out {
+    background-color: #c3c4c1;
     bottom: 1%;
     display: flex;
     position: relative;
