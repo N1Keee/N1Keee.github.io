@@ -45,14 +45,14 @@ export class GripTapeCollection {
        bumpMap: bmp,
        bumpScale: 0.5,
        metalness: 0,
-       color: 0x000000,
+       color: 0x121212,
        roughness: 1
      });
 
      let texture002 = this.textureLoader.load("/sauce/textures/griptapes/DDgriptape-default.png");
      texture002.wrapS = THREE.repeatWrapping;
      texture002.wrapT = THREE.repeatWrapping;
-     texture002.repeat.set(-1,1);
+     texture002.repeat.set(1,-1);
      let grip002 = new THREE.MeshStandardMaterial({
        name: 'GripTapeM',
        map: texture002,
@@ -66,7 +66,7 @@ export class GripTapeCollection {
      let texture003 = this.textureLoader.load("/sauce/textures/griptapes/Griptape3.png");
      texture003.wrapS = THREE.repeatWrapping;
      texture003.wrapT = THREE.repeatWrapping;
-     texture003.repeat.set(-1,1);
+     texture003.repeat.set(1,-1);
      let grip003 = new THREE.MeshStandardMaterial({
        name: 'GripTapeM',
        map: texture003,
@@ -79,7 +79,7 @@ export class GripTapeCollection {
      let texture004 = this.textureLoader.load("/sauce/textures/griptapes/Griptape4.png");
      texture004.wrapS = THREE.repeatWrapping;
      texture004.wrapT = THREE.repeatWrapping;
-     texture004.repeat.set(-1,1);
+     texture004.repeat.set(1,-1);
      let grip004 = new THREE.MeshStandardMaterial({
        name: 'GripTapeM',
        map: texture004,
