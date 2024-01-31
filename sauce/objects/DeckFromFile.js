@@ -21,12 +21,16 @@ export default class DeckFromFile extends THREE.Group {
     this.smallDeck = false;
     this.smallTrucks = false;
     this.compatible = true;
+    this.noGripMaterial;
   }
 
   load(thisDeck){
     this.gltfLoader.load('sauce/models/decksmalltest.gltf', function(gltf){
       gltf.scene.traverse(function(child){
         if(child.isMesh){
+          if(child.material.name === 'GripTapeM'){
+            thisDeck.noGripMaterial = child.material;
+          }
           child.parentDeck = thisDeck;
           child.castShadow = true;
           thisDeck.meshes.push(child);

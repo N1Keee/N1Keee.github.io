@@ -92,19 +92,17 @@ function init() {
   riserFromFile.rotation.set(THREE.MathUtils.degToRad(-135),0,0);
 
   scene.add(deckFromFile);
-  //scene.add(studioFromFile);
 
   orbitControls = new CONTROLS.OrbitControls(camera, renderer.domElement);
   //orbitControls.target = new THREE.Vector3(0, 0, 0);
   orbitControls.enablePan = false;
-  //orbitControls.enableZoom = false;
+  orbitControls.enableZoom = false;
 
   window.addEventListener("resize", function(){
     updateAspectRatio();
   });
 
   document.getElementById("toggle_animation").addEventListener("click", function(){
-    deckFromFile.updateGripMaterial(gripTapeCollection.defaultGrip);
     toggleAnimation();
   });
   document.getElementById("cam_1").addEventListener("click", function(){
@@ -291,7 +289,7 @@ function selectedPartsOnClickEvents(){
   });
   componentController.selectedGrip.addEventListener("click", function(){
     componentController.deselectGrip();
-    deckFromFile.updateGripMaterial(gripTapeCollection.defaultGrip);
+    deckFromFile.updateGripMaterial(deckFromFile.noGripMaterial);
   });
   componentController.selectedRisers.addEventListener("click", function(){
     componentController.deselectRisers();
