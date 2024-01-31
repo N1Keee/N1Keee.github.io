@@ -390,6 +390,14 @@ div.check-out {
     height: 5%;
 }
 
+p.compatible-advise {
+    position:relative;
+    margin: auto;
+    color: deeppink;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: large;
+}
+
 p.total-sum {
     position:relative;
     margin: auto;

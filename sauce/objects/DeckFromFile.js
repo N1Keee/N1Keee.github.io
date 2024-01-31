@@ -11,17 +11,16 @@ export default class DeckFromFile extends THREE.Group {
     this.meshes = [];
     this.loadingDone = false;
     this.load(this);
-
-
-    this.hasRiser = false;
     this.smallDecks = [
       "sauce/textures/boards/Karl-Skateboard.png",
       "sauce/textures/boards/Karl-Skateboard2.png",
       "sauce/textures/boards/Karl-Skateboard3.png",
       "sauce/textures/boards/Karl-Skateboard4.png"
     ];
+    this.hasRiser = false;
     this.smallDeck = false;
     this.smallTrucks = false;
+    this.compatible = true;
   }
 
   load(thisDeck){
@@ -191,6 +190,23 @@ export default class DeckFromFile extends THREE.Group {
       }
       if(element.name === 'TrucksJoined_7'){ // BaseScrews
         element.position.y += riserOffset;
+      }
+    }
+  }
+
+  checkCompatible(){
+    if((this.smallDeck && this.smallTrucks)||(!this.smallDeck && !this.smallTrucks)){
+      document.getElementById("compatible").style.visibility = 'hidden';
+      this.compatible = true;
+    } else {
+      if(this.smallDeck && !this.smallTrucks){
+        document.getElementById("compatible").style.visibility = 'visible';
+        document.getElementById("compatible").innerHTML = "We recommend matching Deck and Truck sizes";
+        this.compatible = false;
+      } else {
+        document.getElementById("compatible").style.visibility = 'visible';
+        document.getElementById("compatible").innerHTML = "We recommend matching Deck and Truck sizes";
+        this.compatible = false;
       }
     }
   }

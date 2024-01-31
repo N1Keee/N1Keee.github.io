@@ -115,9 +115,8 @@ function init() {
   });
 
   document.getElementById("toggle_animation").addEventListener("click", function(){
-    deckFromFile.changeTruckSize();
-    riserFromFile.adjustRiserPosition(deckFromFile.smallTrucks);
-    //toggleAnimation();
+    //deckFromFile.updateGripMaterial(gripTapeCollection.defaultGrip);
+    toggleAnimation();
   });
   document.getElementById("cam_1").addEventListener("click", function(){
     cameraAngle(0);
@@ -212,23 +211,13 @@ function toggleAnimation(){
     document.getElementById("start-stop").setAttribute("src","sauce/pictures/controls-icons/rotation-allowed.png");
   }
 }
-function toggleAnimation2(){
-  if(!orbitControls.autoRotate){
-    orbitControls.autoRotate = true;
-    animationRunning = true;
-    document.getElementById("start-stop").setAttribute("src","sauce/pictures/controls-icons/rotation-locked.png");
-  } else {
-    orbitControls.autoRotate = false;
-    animationRunning = false;
-    document.getElementById("start-stop").setAttribute("src","sauce/pictures/controls-icons/rotation-allowed.png");
-  }
-}
 
 function initDeckCatalogue() {
   for(const deck of componentController.deck_catalogue){
     deck.addEventListener("click", function() {
       deckFromFile.upgradeDeckTexture(document.getElementById(deck.getAttribute("id")).querySelector(".product-picture").getAttribute("src"));
       componentController.selectDeck(deck.getAttribute("id"));
+      deckFromFile.checkCompatible();
     });
   }
 }
@@ -242,6 +231,7 @@ function initTrucksCatalogue() {
       deckFromFile.changeTruckSize(trucksCollection.small_trucks.includes(trucksCollection.getTrucks(i)));
       riserFromFile.adjustRiserPosition(deckFromFile.smallTrucks);
       componentController.selectTrucks(trucks.getAttribute("id"));
+      deckFromFile.checkCompatible();
     });
   }
 }
@@ -295,10 +285,12 @@ function selectedPartsOnClickEvents(){
   componentController.selectedDeck.addEventListener("click", function(){
     componentController.deselectDeck();
     deckFromFile.upgradeDeckTexture("sauce/textures/dd-default.png");
+    deckFromFile.checkCompatible();
   });
   componentController.selectedTrucks.addEventListener("click", function(){
     componentController.deselectTrucks();
     deckFromFile.updateTrucksMaterials(trucksCollection.defaultTrucks);
+    deckFromFile.checkCompatible();
   });
   componentController.selectedWheels.addEventListener("click", function(){
     componentController.deselectWheels();

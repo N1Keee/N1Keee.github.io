@@ -19,7 +19,7 @@ export class GripTapeCollection {
    let grip00X = new THREE.MeshStandardMaterial({
        name: 'GripTapeM',
        bumpMap: bmp,
-       bumpScale: 10,
+       bumpScale: 0.5,
        metalness: 0,
        color: 0x000000,
        roughness: 1
@@ -28,10 +28,24 @@ export class GripTapeCollection {
 
    initializeCollection(){
      let bmp = this.textureLoader.load("/sauce/textures/GriptapeBumpmap.png");
-
      bmp.wrapS = THREE.repeatWrapping;
      bmp.wrapT = THREE.repeatWrapping;
      bmp.repeat.set(8,2);
+
+     let texture = this.textureLoader.load("/sauce/pictures/DECK DYNASTY Logo q sw-RGB.png");
+     texture.wrapS = THREE.repeatWrapping;
+     texture.wrapT = THREE.repeatWrapping;
+     texture.repeat.set(-1,1);
+
+     this.defaultGrip = new THREE.MeshStandardMaterial({
+       name: 'GripTapeM',
+       map: texture,
+       bumpMap: bmp,
+       bumpScale: 0.5,
+       metalness: 0,
+       color: 0xffffff,
+       roughness: 1
+     });
 
      let grip001 = new THREE.MeshStandardMaterial({
        name: 'GripTapeM',
@@ -44,7 +58,7 @@ export class GripTapeCollection {
      let grip002 = new THREE.MeshStandardMaterial({
        name: 'GripTapeM',
        bumpMap: bmp,
-       bumpScale: 10,
+       bumpScale: 0.5,
        metalness: 0,
        color: 0x000000,
        roughness: 1
@@ -52,14 +66,5 @@ export class GripTapeCollection {
 
      this.grips.push(grip001);
      this.grips.push(grip002);
-
-     this.defaultGrip = new THREE.MeshStandardMaterial({
-       name: 'GripTapeM',
-       bumpMap: bmp,
-       bumpScale: 10,
-       metalness: 0,
-       color: 0xffffff,
-       roughness: 1
-     });
    }
 }
