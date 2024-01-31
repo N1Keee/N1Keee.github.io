@@ -21,6 +21,7 @@ export default class DeckFromFile extends THREE.Group {
       "sauce/textures/boards/Karl-Skateboard4.png"
     ];
     this.smallDeck = false;
+    this.smallTrucks = false;
   }
 
   load(thisDeck){
@@ -120,6 +121,38 @@ export default class DeckFromFile extends THREE.Group {
       for(const element of this.meshes){
         if(element.name === 'Deck_1' || element.name === 'Deck_2' || element.name === 'Deck_3'){
           element.scale.set(1,1,1);
+        }
+      }
+    }
+  }
+
+  changeTruckSize(trucks){
+    if(trucks){
+      for(const element of this.meshes){
+        if(element.name === 'TrucksJoined_1' ||
+            element.name === 'TrucksJoined_2' ||
+            element.name === 'TrucksJoined_3' ||
+            element.name === 'TrucksJoined_4' ||
+            element.name === 'TrucksJoined_5' ||
+            element.name === 'TrucksJoined_6' ||
+            element.name === 'TrucksJoined_7' ||
+            element.name === 'DeckScrews'){
+          element.scale.set(0.95,1,0.95);
+          this.smallTrucks = true;
+        }
+      }
+    } else {
+      for(const element of this.meshes){
+        if(element.name === 'TrucksJoined_1' ||
+            element.name === 'TrucksJoined_2' ||
+            element.name === 'TrucksJoined_3' ||
+            element.name === 'TrucksJoined_4' ||
+            element.name === 'TrucksJoined_5' ||
+            element.name === 'TrucksJoined_6' ||
+            element.name === 'TrucksJoined_7' ||
+            element.name === 'DeckScrews'){
+          element.scale.set(1,1,1);
+          this.smallTrucks = false;
         }
       }
     }

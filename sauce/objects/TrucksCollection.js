@@ -5,6 +5,8 @@ export class TrucksCollection {
 
   trucks = [];
 
+  small_trucks = [];
+
   defaultTrucks = new TrucksMaterialContainer(
       new THREE.MeshStandardMaterial({color:0xffffff, metalness:0,roughness:0,flatShading:false}), //main
       new THREE.MeshStandardMaterial({color:0xffffff, metalness:0,roughness:0,flatShading:false}), //base
@@ -65,5 +67,8 @@ export class TrucksCollection {
     this.trucks.push(trucks002);
     this.trucks.push(trucks003);
     this.trucks.push(trucks004);
+
+    // add small trucks extra:
+    this.small_trucks.push(trucks001);
   }
 }

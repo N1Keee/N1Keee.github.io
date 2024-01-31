@@ -108,14 +108,16 @@ function init() {
   orbitControls = new CONTROLS.OrbitControls(camera, renderer.domElement);
   //orbitControls.target = new THREE.Vector3(0, 0, 0);
   orbitControls.enablePan = false;
-  orbitControls.enableZoom = false;
+  //orbitControls.enableZoom = false;
 
   window.addEventListener("resize", function(){
     updateAspectRatio();
   });
 
   document.getElementById("toggle_animation").addEventListener("click", function(){
-    toggleAnimation();
+    deckFromFile.changeTruckSize();
+    riserFromFile.adjustRiserPosition(deckFromFile.smallTrucks);
+    //toggleAnimation();
   });
   document.getElementById("cam_1").addEventListener("click", function(){
     cameraAngle(0);
@@ -237,6 +239,8 @@ function initTrucksCatalogue() {
 
     trucks.addEventListener("click", function() {
       deckFromFile.updateTrucksMaterials(trucksCollection.getTrucks(i));
+      deckFromFile.changeTruckSize(trucksCollection.small_trucks.includes(trucksCollection.getTrucks(i)));
+      riserFromFile.adjustRiserPosition(deckFromFile.smallTrucks);
       componentController.selectTrucks(trucks.getAttribute("id"));
     });
   }

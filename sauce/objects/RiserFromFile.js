@@ -7,6 +7,7 @@ export default class RiserFromFile extends THREE.Group {
     super();
     this.gltfLoader = new GLTFLoader();
     this.meshes = [];
+    this.smallRisers = false;
     this.load(this);
   }
 
@@ -28,6 +29,20 @@ export default class RiserFromFile extends THREE.Group {
   updateRisersMaterial(risersM){
     for(const element of this.meshes) {
       element.material = risersM;
+    }
+  }
+
+  adjustRiserPosition(smallTrucks){
+    if(!smallTrucks){
+      for(const element of this.meshes){
+        element.scale.set(1,1,1);
+        this.smallRisers = false;
+      }
+    } else {
+      for(const element of this.meshes){
+        element.scale.set(0.95,1,0.95);
+        this.smallRisers = true;
+      }
     }
   }
 
