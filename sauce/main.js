@@ -124,6 +124,10 @@ function init() {
       });
     });
   });
+
+  document.getElementById("check-out-button").addEventListener("click", function (){
+    window.location.assign("/sauce/checkOut.html");
+  });
 }
 
 function repositionSpotLight(){
