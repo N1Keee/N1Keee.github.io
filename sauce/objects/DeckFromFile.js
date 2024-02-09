@@ -25,7 +25,7 @@ export default class DeckFromFile extends THREE.Group {
   }
 
   load(thisDeck){
-    this.gltfLoader.load('sauce/models/DeckWood.gltf', function(gltf){
+    this.gltfLoader.load('sauce/models/deck2 RISER.gltf', function(gltf){
       gltf.scene.traverse(function(child){
         if(child.isMesh){
           if(child.material.name === 'GripTapeM'){
