@@ -276,7 +276,7 @@ function initRisersCatalogue() {
 function selectedPartsOnClickEvents(){
   componentController.selectedDeck.addEventListener("click", function(){
     componentController.deselectDeck();
-    deckFromFile.resetDeckTexture();
+    deckFromFile.upgradeDeckTexture("sauce/textures/whiteDeck.png");
     deckFromFile.checkCompatible();
   });
   componentController.selectedTrucks.addEventListener("click", function(){

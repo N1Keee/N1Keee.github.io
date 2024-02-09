@@ -22,7 +22,6 @@ export default class DeckFromFile extends THREE.Group {
     this.smallTrucks = false;
     this.compatible = true;
     this.noGripMaterial;
-    this.noDeckMaterial;
   }
 
   load(thisDeck){
@@ -66,14 +65,6 @@ export default class DeckFromFile extends THREE.Group {
       this.smallDeck = false;
     }
     this.changeBoardSize();
-  }
-
-  resetDeckTexture() {
-    for(const element of this.meshes){
-      if(element.material.name === 'DeckM'){
-        element.material = this.noDeckMaterial;
-      }
-    }
   }
 
   updateTrucksMaterials(trucksMaterialContainer){
