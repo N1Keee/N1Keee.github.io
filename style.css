@@ -458,7 +458,6 @@ img.skateboard-icon {
 .tooltip {
     position: relative;
     display: inline-block;
-    border-bottom: 1px dotted black;
 }
 
 div.prepare-checkOut{
@@ -488,7 +487,7 @@ div.prepare-checkOut{
 }
 .tooltip .tooltiptext {
     width: 120px;
-    bottom: 100%;
+    bottom: 105%;
     left: 50%;
     margin-left: -60px;
 }
@@ -504,5 +503,44 @@ div.prepare-checkOut{
     margin-left: -5px;
     border-width: 5px;
     border-style: solid;
-    border-color: black transparent transparent transparent;
+    border-color: #40443b transparent transparent transparent;
+}
+
+
+.tooltip-left {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip-left .tooltiptext-left {
+    visibility: hidden;
+    width: 120px;
+    background-color: #40443b;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: small;
+
+    position: absolute;
+    z-index: 1;
+}
+.tooltip-left .tooltiptext-left {
+    top: 25%;
+    right: 120%;
+}
+
+.tooltip-left:hover .tooltiptext-left {
+    visibility: visible;
+}
+.tooltip-left .tooltiptext-left::after {
+    content: " ";
+    position: absolute;
+    top: 50%;
+    left: 100%; /* To the right of the tooltip */
+    margin-top: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent transparent #40443b;
 }
