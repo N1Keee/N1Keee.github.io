@@ -126,7 +126,16 @@ function init() {
   });
 
   document.getElementById("check-out-button").addEventListener("click", function (){
-    //window.location.assign("/sauce/checkOut.html");
+    prepareCheckOutPage();
+    document.getElementById("prepare-checkOut").style.visibility = "visible";
+  });
+
+  document.getElementById("back").addEventListener("click", function (){
+    document.getElementById("prepare-checkOut").style.visibility = "hidden";
+  });
+
+  document.getElementById("continue").addEventListener("click", function (){
+    window.location.assign("/sauce/checkOut.html");
   });
 }
 
@@ -320,7 +329,9 @@ function removeRisers(){
 
 function prepareCheckOutPage(){
   if(componentController.missingParts()){
-
+    document.getElementById("missing-parts-text").innerHTML = "Your configuration is complete!";
+  } else {
+    document.getElementById("missing-parts-text").innerHTML = "You have unselected parts. Do you still want to continue?";
   }
 }
 

@@ -6,13 +6,7 @@ export class ComponentController {
   selectedGrip;
   selectedRisers;
 
-  selectedParts = [
-      this.selectedDeck,
-    this.selectedTrucks,
-    this.selectedWheels,
-    this.selectedBearings,
-    this.selectedGrip,
-    this.selectedRisers];
+  selectedParts = [];
 
   deck_catalogue = [];
   trucks_catalogue = [];
@@ -26,12 +20,11 @@ export class ComponentController {
   complete = true;
 
   defaultIcons = [
-      "/sauce/pictures/default-icons/default-deck.png",
-    "/sauce/pictures/default-icons/default-trucks.png",
-    "/sauce/pictures/default-icons/default-wheels.png",
-    "/sauce/pictures/default-icons/default-bearings.png",
-    "/sauce/pictures/default-icons/default-griptape.png",
-    "/sauce/pictures/default-icons/default-riser.png"
+      "sauce/pictures/default-icons/default-deck.png",
+    "sauce/pictures/default-icons/default-trucks.png",
+    "sauce/pictures/default-icons/default-wheels.png",
+    "sauce/pictures/default-icons/default-bearings.png",
+    "sauce/pictures/default-icons/default-griptape.png",
   ];
 
   constructor() {
@@ -48,6 +41,12 @@ export class ComponentController {
     this.bearings_catalogue = document.getElementsByClassName("bearing-item");
     this.grip_catalogue = document.getElementsByClassName("grip-tape-item");
     this.risers_catalogue = document.getElementsByClassName("riser-item");
+
+    this.selectedParts.push(this.selectedDeck,
+        this.selectedTrucks,
+        this.selectedWheels,
+        this.selectedBearings,
+        this.selectedGrip);
 
     this.totalSumP = document.getElementById("total");
     this.initComponentController();
@@ -209,10 +208,9 @@ export class ComponentController {
 
   missingParts(){
     this.complete = true;
-    for(const part in this.selectedParts){
-      if(this.defaultIcons.includes(part.querySelector("product-picture").getAttribute('src'))){
+    for(const part of this.selectedParts){
+      if(this.defaultIcons.includes(part.querySelector(".product-picture").getAttribute('src'))){
         this.complete = false;
-      } else {
       }
     }
     return this.complete;
