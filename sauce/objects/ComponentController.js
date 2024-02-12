@@ -6,6 +6,14 @@ export class ComponentController {
   selectedGrip;
   selectedRisers;
 
+  selectedParts = [
+      this.selectedDeck,
+    this.selectedTrucks,
+    this.selectedWheels,
+    this.selectedBearings,
+    this.selectedGrip,
+    this.selectedRisers];
+
   deck_catalogue = [];
   trucks_catalogue = [];
   wheels_catalogue = [];
@@ -14,6 +22,17 @@ export class ComponentController {
   risers_catalogue = [];
 
   totalSumP;
+
+  complete = true;
+
+  defaultIcons = [
+      "/sauce/pictures/default-icons/default-deck.png",
+    "/sauce/pictures/default-icons/default-trucks.png",
+    "/sauce/pictures/default-icons/default-wheels.png",
+    "/sauce/pictures/default-icons/default-bearings.png",
+    "/sauce/pictures/default-icons/default-griptape.png",
+    "/sauce/pictures/default-icons/default-riser.png"
+  ];
 
   constructor() {
     this.selectedDeck = document.getElementById("selected_parts").querySelector(".selected-deck");
@@ -186,6 +205,17 @@ export class ComponentController {
     let priceString = total_price.toFixed(2);
     //console.log('Gesamtpreis: ' + total_price.toFixed(2) + '€');
     this.totalSumP.innerHTML = "Total: " + priceString + "€";
+  }
+
+  missingParts(){
+    this.complete = true;
+    for(const part in this.selectedParts){
+      if(this.defaultIcons.includes(part.querySelector("product-picture").getAttribute('src'))){
+        this.complete = false;
+      } else {
+      }
+    }
+    return this.complete;
   }
 
 }
