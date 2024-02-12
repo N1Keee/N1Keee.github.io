@@ -126,8 +126,13 @@ function init() {
   });
 
   document.getElementById("check-out-button").addEventListener("click", function (){
-    prepareCheckOutPage();
-    document.getElementById("prepare-checkOut").style.visibility = "visible";
+    if(componentController.missingParts()){
+      window.location.assign("/sauce/checkOut.html");
+    } else {
+      document.getElementById("prepare-checkOut").style.visibility = "visible";
+    }
+    //prepareCheckOutPage();
+    //document.getElementById("prepare-checkOut").style.visibility = "visible";
   });
 
   document.getElementById("back").addEventListener("click", function (){
@@ -324,14 +329,6 @@ function removeRisers(){
     scene.remove(riserFromFile);
     deckFromFile.hasRiser = false;
     deckFromFile.toggleRiserOffset();
-  }
-}
-
-function prepareCheckOutPage(){
-  if(componentController.missingParts()){
-    document.getElementById("missing-parts-text").innerHTML = "Your configuration is complete!";
-  } else {
-    document.getElementById("missing-parts-text").innerHTML = "You have unselected parts. Do you still want to continue?";
   }
 }
 
