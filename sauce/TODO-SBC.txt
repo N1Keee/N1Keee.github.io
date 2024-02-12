@@ -18,5 +18,13 @@ fix UpdateAspectRatio()? diagonal adjustment (always 16:9)
 - fonts includen
 
 
+12/02:
+    - Preisgestaltung (Rollen härte in xxA und größe, bei trucks evt. titan oder so)
+    - Tooltip für standardansichten
+    - Gestalten des CheckOut-Button und der CheckOut-Site
+        - Hinweise auf missing parts
+    - Information zu Produkten und Konfigurator
+    
 
+    - Doku und Evaluation
 
