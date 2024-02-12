@@ -1,10 +1,7 @@
 12/02:
     - Preisgestaltung (Rollen härte in xxA und größe, bei trucks evt. titan oder so)
         mittelhart: 96A bis 99A, hart: über 101A
-    - Tooltip für standardansichten
     - Gestalten des CheckOut-Button und der CheckOut-Site
-        - Hinweise auf missing parts
-
     - Information zu Produkten und Konfigurator
 
 
