@@ -126,7 +126,7 @@ function init() {
   });
 
   document.getElementById("check-out-button").addEventListener("click", function (){
-    window.location.assign("/sauce/checkOut.html");
+    //window.location.assign("/sauce/checkOut.html");
   });
 }
 
@@ -315,6 +315,12 @@ function removeRisers(){
     scene.remove(riserFromFile);
     deckFromFile.hasRiser = false;
     deckFromFile.toggleRiserOffset();
+  }
+}
+
+function prepareCheckOutPage(){
+  if(componentController.missingParts()){
+
   }
 }
 
