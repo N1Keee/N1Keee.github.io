@@ -1,30 +1,12 @@
-UpdateComponentMethods() -> onClick
-
-"selected-parts": deck, truck,... -item placeholder   + Selection.js   
-	
-	?) 	ConfigurationManager.js   knows each doc-element and stores product-information inside itself
-		later used for displaying each component inside "selected-parts"-div.
-		struct(Component) type, name, price, picture
-
-fix UpdateAspectRatio()? diagonal adjustment (always 16:9) 
-
-
-- Default auto-rotate OrbitControls when site is launched ()
-- Bumpmap Griptape
-- Shadows
-- Rendering settings: materials look kinda shit atm...
-- logos on Trucks and wheels
-
-- fonts includen
-
-
 12/02:
     - Preisgestaltung (Rollen härte in xxA und größe, bei trucks evt. titan oder so)
+        mittelhart: 96A bis 99A, hart: über 101A
     - Tooltip für standardansichten
     - Gestalten des CheckOut-Button und der CheckOut-Site
         - Hinweise auf missing parts
+
     - Information zu Produkten und Konfigurator
-    
+
 
     - Doku und Evaluation
 
