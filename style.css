@@ -531,9 +531,15 @@ div.prepare-checkOut{
     height: 20%;
 }
 
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
 .tooltip .tooltiptext {
     visibility: hidden;
-    width: auto;
+    width: 120px;
+    height: auto;
     background-color: #40443b;
     color: #fff;
     text-align: left;
@@ -541,10 +547,12 @@ div.prepare-checkOut{
     border-radius: 4px;
     font-family: 'Roboto Condensed', sans-serif;
     font-size: small;
-    position: relative;
+    position: absolute;
     z-index: 1;
-    height: auto;
-    bottom: 120%;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -60px;
+
 }
 
 .tooltip:hover .tooltiptext {
@@ -569,7 +577,7 @@ div.prepare-checkOut{
 
 .tooltip-left .tooltiptext-left {
     visibility: hidden;
-    width: 120px;
+    width: 100px;
     background-color: #40443b;
     color: #fff;
     text-align: center;
@@ -577,11 +585,8 @@ div.prepare-checkOut{
     border-radius: 4px;
     font-family: 'Roboto Condensed', sans-serif;
     font-size: small;
-
     position: absolute;
     z-index: 1;
-}
-.tooltip-left .tooltiptext-left {
     top: 25%;
     right: 120%;
 }
@@ -589,6 +594,7 @@ div.prepare-checkOut{
 .tooltip-left:hover .tooltiptext-left {
     visibility: visible;
 }
+
 .tooltip-left .tooltiptext-left::after {
     content: " ";
     position: absolute;
