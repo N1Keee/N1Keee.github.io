@@ -460,9 +460,29 @@ img.skateboard-icon {
     display: inline-block;
 }
 
+.check-out-button {
+    position: relative;
+    margin-right: 0.5%;
+    right: 8px;
+    background-color: #dfdfdd;
+    border: 2px solid grey;
+    border-radius: 4px;
+    text-align: center;
+    cursor: pointer;
+    caret-color: transparent;
+    /*font-family: 'Roboto Condensed', sans-serif;*/
+    font-family: 'Luckiest Guy', cursive;
+    color: deeppink;
+    font-size: large;
+}
+.check-out-button:hover{
+    border: 2px solid lightskyblue;
+}
+
+
 div.prepare-checkOut{
     visibility: hidden;
-    background-color: deeppink;
+    background-color: #c3c4c1;
     border: 2px solid grey;
     border-radius: 6px;
     position: absolute;
@@ -474,14 +494,28 @@ div.prepare-checkOut{
 
 .missing-parts-text{
     text-align: center;
-    padding-top: 5%;
+    color: black;
+    padding-top: 1%;
     font-family: 'Roboto Condensed', sans-serif;
-    font-size: large;
+    font-size: x-large;
+    caret-color: transparent;
 }
 
 .missing-parts-button{
-    font-family: 'Roboto Condensed', sans-serif;
+    font-family: 'Luckiest Guy', cursive;
+    color: deeppink;
+    font-size: large;
+    background-color: #dfdfdd;
+    border: 1px solid grey;
+    border-radius: 4px;
+    text-align: center;
+    cursor: pointer;
+    caret-color: transparent;
 }
+.missing-parts-button:hover{
+    border: 2px solid lightskyblue;
+}
+
 #back{
     position: absolute;
     bottom: 12px;
