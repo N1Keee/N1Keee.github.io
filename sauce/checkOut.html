@@ -5,6 +5,15 @@
   <title>CHECK OUT</title>
 </head>
 <body>
+<iframe
+    width="1920"
+    height="1080"
+    src="https://www.youtube.com/embed/8gXpZmQ7j70?si=BYnrJrmZp9XLeLJ_&amp;autoplay=1&amp;mute=1&amp;controls=0&amp;start=24"
+    title="YouTube video player"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen>
+</iframe>
   <div>
     <p>"Vielen Dank für die Nutzung unseres Skateboard-Konfigurators!
       Wir hoffen, dass Sie eine angenehme Erfahrung damit hatten!"</p>
@@ -14,18 +23,17 @@
     @import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Roboto+Condensed&display=swap');
     body{
         background-color: #dfdfdd;
+        overflow-y: hidden;
+        overflow-x: hidden;
+        cursor: none;
     }
     div{
+        z-index: 2;
         position:absolute;
         border: 2px solid grey;
         border-radius: 12px;
         height: 50%;
-        margin-top: 10%;
-        margin-left: 8%;
-        margin-right: 8%;
         background-color: white;
-        display: flex;
-        justify-content: center;
         caret-color: transparent;
     }
     p{
