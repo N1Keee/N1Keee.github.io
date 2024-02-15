@@ -302,6 +302,7 @@ function selectedPartsOnClickEvents(){
   });
   componentController.selectedTrucks.addEventListener("click", function(){
     componentController.deselectTrucks();
+    deckFromFile.changeTruckSize(false);
     deckFromFile.updateTrucksMaterials(trucksCollection.defaultTrucks);
     deckFromFile.checkCompatible();
   });
