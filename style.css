@@ -490,12 +490,12 @@ div.prepare-checkOut{
     height: 15%;
     bottom:8px;
     right:8px;
+    overflow: hidden;
 }
 
 .missing-parts-text{
     text-align: center;
     color: black;
-    padding-top: 1%;
     font-family: 'Roboto Condensed', sans-serif;
     font-size: x-large;
     caret-color: transparent;
@@ -518,6 +518,7 @@ div.prepare-checkOut{
 
 #back{
     position: absolute;
+    overflow: hidden;
     bottom: 12px;
     left: 12px;
     width: 25%;
@@ -525,6 +526,7 @@ div.prepare-checkOut{
 }
 #continue{
     position: absolute;
+    overflow: hidden;
     bottom: 12px;
     right: 12px;
     width: 25%;

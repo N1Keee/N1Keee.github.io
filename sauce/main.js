@@ -126,10 +126,17 @@ function init() {
   });
 
   document.getElementById("check-out-button").addEventListener("click", function (){
-    if(componentController.missingParts()){
+    if(componentController.missingParts() && deckFromFile.compatible){
       window.location.assign("/sauce/checkOut.html");
     } else {
       document.getElementById("prepare-checkOut").style.visibility = "visible";
+      document.getElementById("missing-parts-text").innerHTML = "Your have unselected parts. Do you still want to continue?"
+      if(!deckFromFile.compatible && componentController.missingParts()){
+        document.getElementById("missing-parts-text").innerHTML = "Your Deck-Truck configuration isn't optimal. Do you still want to continue?"
+      }
+      if(!deckFromFile.compatible && !componentController.missingParts()){
+        document.getElementById("missing-parts-text").innerHTML = "Your Deck-Truck configuration isn't optimal and you have unselected parts. Do you still want to continue?"
+      }
     }
     //prepareCheckOutPage();
     //document.getElementById("prepare-checkOut").style.visibility = "visible";
