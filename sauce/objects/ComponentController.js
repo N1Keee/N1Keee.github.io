@@ -17,7 +17,7 @@ export class ComponentController {
 
   totalSumP;
 
-  complete = true;
+  complete = false;
 
   defaultIcons = [
       "sauce/pictures/default-icons/default-deck.png",
@@ -25,6 +25,7 @@ export class ComponentController {
     "sauce/pictures/default-icons/default-wheels.png",
     "sauce/pictures/default-icons/default-bearings.png",
     "sauce/pictures/default-icons/default-griptape.png",
+    "sauce/pictures/default-icons/default-riser.png"
   ];
 
   constructor() {
@@ -46,7 +47,8 @@ export class ComponentController {
         this.selectedTrucks,
         this.selectedWheels,
         this.selectedBearings,
-        this.selectedGrip);
+        this.selectedGrip,
+        this.selectedRisers);
 
     this.totalSumP = document.getElementById("total");
     this.initComponentController();

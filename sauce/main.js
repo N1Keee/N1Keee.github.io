@@ -129,6 +129,7 @@ function init() {
     if(componentController.missingParts() && deckFromFile.compatible){
       window.location.assign("/sauce/checkOut.html");
     } else {
+      /*
       document.getElementById("prepare-checkOut").style.visibility = "visible";
       document.getElementById("missing-parts-text").innerHTML = "Your have unselected parts. Do you still want to continue?"
       if(!deckFromFile.compatible && componentController.missingParts()){
@@ -137,6 +138,7 @@ function init() {
       if(!deckFromFile.compatible && !componentController.missingParts()){
         document.getElementById("missing-parts-text").innerHTML = "Your Deck-Truck configuration isn't optimal and you have unselected parts. Do you still want to continue?"
       }
+      */
     }
     //prepareCheckOutPage();
     //document.getElementById("prepare-checkOut").style.visibility = "visible";
@@ -180,6 +182,7 @@ function main() {
     renderer.render(scene, camera);
 
     componentController.checkOut();
+    checkOutCursor();
   }
 
   mainLoop();
@@ -338,6 +341,14 @@ function removeRisers(){
     scene.remove(riserFromFile);
     deckFromFile.hasRiser = false;
     deckFromFile.toggleRiserOffset();
+  }
+}
+
+function checkOutCursor(){
+  if(deckFromFile.compatible && componentController.missingParts()){
+    document.getElementById("check-out-button").style.cursor = "pointer";
+  } else {
+    document.getElementById("check-out-button").style.cursor = "not-allowed";
   }
 }
 

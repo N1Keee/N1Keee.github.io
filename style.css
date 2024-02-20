@@ -468,7 +468,7 @@ img.skateboard-icon {
     border: 2px solid grey;
     border-radius: 4px;
     text-align: center;
-    cursor: pointer;
+    cursor: not-allowed;
     caret-color: transparent;
     /*font-family: 'Roboto Condensed', sans-serif;*/
     font-family: 'Luckiest Guy', cursive;
