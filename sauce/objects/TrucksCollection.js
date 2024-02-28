@@ -23,16 +23,6 @@ export class TrucksCollection {
     return this.trucks[i];
   }
 
-  /*
-    let trucks001 = new TrucksMaterialContainer(
-        new THREE.MeshStandardMaterial({color:0x000000, metalness:0.8,roughness:0.3,flatShading:false}), //main
-        new THREE.MeshStandardMaterial({color:0x000000, metalness:0.8,roughness:0.3,flatShading:false}), //base
-        new THREE.MeshStandardMaterial({color:0x000000, metalness:0.9,roughness:0.1,flatShading:false}), //screws
-        new THREE.MeshStandardMaterial({color:0x000000, metalness:0,roughness:0.8,flatShading:false}), //bushings
-        new THREE.MeshStandardMaterial({color:0x000000, metalness:0,roughness:0.5,flatShading:false})  //nuts
-    );
-  */
-
   initializeCollection(){
     let trucks001 = new TrucksMaterialContainer(
         new THREE.MeshStandardMaterial({color:0x474747, metalness:0.8,roughness:0.3,flatShading:false}),
@@ -68,7 +58,6 @@ export class TrucksCollection {
     this.trucks.push(trucks003);
     this.trucks.push(trucks004);
 
-    // add small trucks extra:
     this.small_trucks.push(trucks001);
   }
 }

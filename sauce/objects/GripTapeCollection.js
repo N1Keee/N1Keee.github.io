@@ -13,33 +13,12 @@ export class GripTapeCollection {
      return this.grips[i];
    }
 
-   /*
-   let grip00X = new THREE.MeshStandardMaterial({
-       name: 'GripTapeM',
-       bumpMap: bmp,
-       bumpScale: 0.5,
-       metalness: 0,
-       color: 0x000000,
-       roughness: 1
-    });
-   */
-
    initializeCollection(){
      let bmp = this.textureLoader.load("/sauce/textures/GriptapeBumpmap.png");
      bmp.wrapS = THREE.repeatWrapping;
      bmp.wrapT = THREE.repeatWrapping;
      bmp.repeat.set(8,2);
 
-     /*
-     this.defaultGrip = new THREE.MeshStandardMaterial({
-       name: 'GripTapeM',
-       bumpMap: bmp,
-       bumpScale: 0.5,
-       metalness: 0,
-       color: 0x626262,
-       roughness: 1
-     });
-     */
      let grip001 = new THREE.MeshStandardMaterial({
        name: 'GripTapeM',
        bumpMap: bmp,
@@ -76,6 +55,7 @@ export class GripTapeCollection {
        color: 0x626262,
        roughness: 1
      });
+
      let texture004 = this.textureLoader.load("/sauce/textures/griptapes/Griptape4.png");
      texture004.wrapS = THREE.repeatWrapping;
      texture004.wrapT = THREE.repeatWrapping;

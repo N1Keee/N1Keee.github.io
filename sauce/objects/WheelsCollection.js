@@ -1,6 +1,6 @@
 import * as THREE from 'three';
 
-export class WheelsCollection {  // WheelM
+export class WheelsCollection { 
 
   wheels = [];
 
@@ -13,8 +13,6 @@ export class WheelsCollection {  // WheelM
   getWheels(i) {
     return this.wheels[i];
   }
-
-  // let wheels001 = new THREE.MeshStandardMaterial({color: 0x808099, metalness: 0.1, roughness: 0.9, name:'WheelM'});
 
   initializeCollection() {
     let wheels001 = new THREE.MeshStandardMaterial({color: 0xFF7C46, metalness: 0, roughness: 0.3, name:'WheelM'});

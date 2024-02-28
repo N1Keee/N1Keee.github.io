@@ -55,7 +55,6 @@ export class ComponentController {
   }
 
   initComponentController(){
-    //.querySelector(".product-picture").style.marginTop = "15%";
     this.selectedDeck.querySelector(".product-picture").style.marginTop = "15%";
     this.selectedTrucks.querySelector(".product-picture").style.marginTop = "15%";
     this.selectedWheels.querySelector(".product-picture").style.marginTop = "15%";
@@ -204,7 +203,6 @@ export class ComponentController {
       }
     }
     let priceString = total_price.toFixed(2);
-    //console.log('Gesamtpreis: ' + total_price.toFixed(2) + '€');
     this.totalSumP.innerHTML = "Total: " + priceString + "€";
   }
 

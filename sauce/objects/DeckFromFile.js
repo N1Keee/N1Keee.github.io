@@ -9,8 +9,6 @@ export default class DeckFromFile extends THREE.Group {
     this.gltfLoader = new GLTFLoader();
     this.textureLoader = new THREE.TextureLoader();
     this.meshes = [];
-    this.loadingDone = false;
-    this.load(this);
     this.smallDecks = [
       "sauce/textures/boards/Karl-Skateboard.png",
       "sauce/textures/boards/Karl-Skateboard2.png",
@@ -22,6 +20,7 @@ export default class DeckFromFile extends THREE.Group {
     this.smallTrucks = false;
     this.compatible = true;
     this.noGripMaterial;
+    this.load(this);
   }
 
   load(thisDeck){
@@ -37,20 +36,16 @@ export default class DeckFromFile extends THREE.Group {
           child.parentDeck = thisDeck;
           child.castShadow = true;
           thisDeck.meshes.push(child);
-          console.log("Deck: pushed " + child.name + " with materials: " +  child.material.name);
         }
       });
       thisDeck.add(gltf.scene);
-      thisDeck.loadingDone = true;
     });
   }
 
   upgradeDeckTexture(path){
-    console.log(path);
     let texture = this.textureLoader.load(path);
     texture.wrapS = THREE.RepeatWrapping;
     texture.wrapT = THREE.RepeatWrapping;
-    //texture.repeat.set(-1,1);
     texture.repeat.set(1,-1);
     for(const element of this.meshes){
       if(element.material.name === 'DeckM'){
@@ -58,10 +53,8 @@ export default class DeckFromFile extends THREE.Group {
       }
     }
     if(this.smallDecks.includes(path)){
-      console.log("7.75inch deck");
       this.smallDeck = true;
     } else {
-      console.log("8inch deck");
       this.smallDeck = false;
     }
     this.changeBoardSize();
@@ -71,7 +64,6 @@ export default class DeckFromFile extends THREE.Group {
     if(!(trucksMaterialContainer instanceof TrucksMaterialContainer)){
       return;
     } else {
-      console.log(trucksMaterialContainer.nutsMaterial.color);
       for(const element of this.meshes){
         if(element.material.name === 'TruckMainM'){
           element.material = trucksMaterialContainer.mainMaterial;
@@ -172,20 +164,15 @@ export default class DeckFromFile extends THREE.Group {
       riserOffset = -0.02725;
     }
     for(const element of this.meshes){
-      // move up trucks, wheels, bearings
       if(element.name === 'TrucksJoined_1'){ // TruckMain
         element.position.y += riserOffset;
       }
       if(element.name === 'TrucksJoined_2'){ // Wheels
         element.position.y += riserOffset;
       }
-      /*
-      */
       if(element.name === 'TrucksJoined_3'){ // Bearings
         element.position.y += riserOffset;
       }
-      /*
-      */
       if(element.name === 'TrucksJoined_4'){ // BasePlate
         element.position.y += riserOffset;
       }
@@ -203,18 +190,15 @@ export default class DeckFromFile extends THREE.Group {
 
   checkCompatible(){
     if((this.smallDeck && this.smallTrucks)||(!this.smallDeck && !this.smallTrucks)){
-      //document.getElementById("compatible").style.visibility = 'visible';
       document.getElementById("compatible").innerHTML = "Build compatible";
       document.getElementById("compatible").style.color = "#22c0c4";
       this.compatible = true;
     } else {
       if(this.smallDeck && !this.smallTrucks){
-        //document.getElementById("compatible").style.visibility = 'visible';
         document.getElementById("compatible").innerHTML = "We recommend matching Deck and Truck sizes";
         document.getElementById("compatible").style.color = "deeppink";
         this.compatible = false;
       } else {
-        //document.getElementById("compatible").style.visibility = 'visible';
         document.getElementById("compatible").innerHTML = "We recommend matching Deck and Truck sizes";
         document.getElementById("compatible").style.color = "deeppink";
         this.compatible = false;

@@ -17,9 +17,7 @@ export default class RiserFromFile extends THREE.Group {
         if(child.isMesh){
           child.parentRiser = thisRiser;
           child.castShadow = true;
-          //child.receiveShadow = true;
           thisRiser.meshes.push(child);
-          console.log("pushed " + child.name + " with materials: " +  child.material.name);
         }
       });
       thisRiser.add(gltf.scene);

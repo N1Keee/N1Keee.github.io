@@ -11,8 +11,6 @@ export class RisersCollection {
     return this.risers[i];
   }
 
-  // let risers001 = new THREE.MeshStandardMaterial({color: 0x333333, metalness: 0.5, roughness: 1});
-
   initializeCollection(){
     let risers001 = new THREE.MeshStandardMaterial({color: 0x212121, metalness: 0, roughness: 0});
     let risers002 = new THREE.MeshStandardMaterial({color: 0xFFE7BF, metalness: 0, roughness: 0});

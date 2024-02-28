@@ -14,8 +14,6 @@ export class BearingsCollection {
     return this.bearings[i];
   }
 
-  // let bearings001 = new THREE.MeshStandardMaterial({color:0x306075, metalness:0.9,roughness:0.123, name: 'BearingM'});
-
   initializeCollection() {
     let bearings001 = new THREE.MeshStandardMaterial({color:0x810000, metalness:0,roughness:0.8, name: 'BearingM'});
     let bearings002 = new THREE.MeshStandardMaterial({color:0x62397E, metalness:0,roughness:0.8, name: 'BearingM'});
