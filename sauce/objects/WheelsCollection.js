@@ -1,6 +1,6 @@
 import * as THREE from 'three';
 
-export class WheelsCollection { 
+export class WheelsCollection {
 
   wheels = [];
 

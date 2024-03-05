@@ -170,7 +170,6 @@ function cameraAngle(i){
       camera.lookAt(0,0,0);
       break;
     case 2:
-      //camera.position.set(0, 1, 4);
       camera.position.set(0, -3, 0);
       camera.lookAt(0,0,0);
       break;

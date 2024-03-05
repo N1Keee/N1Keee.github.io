@@ -107,8 +107,8 @@ export default class DeckFromFile extends THREE.Group {
       }
     }
   }
-
-  changeBoardSize(){
+  // remove -->
+  changeBoardSize2(){
     if(this.smallDeck){
       for(const element of this.meshes){
         if(element.name === 'Deck_1' || element.name === 'Deck_2' || element.name === 'Deck_3'){
@@ -123,8 +123,22 @@ export default class DeckFromFile extends THREE.Group {
       }
     }
   }
-
-  changeTruckSize(trucks){
+  // <--
+  changeBoardSize(){
+    let x;
+    if(this.smallDeck){
+      x = 0.95;
+    } else {
+      x = 1;
+    }
+    for(const element of this.meshes){
+      if(element.name === 'Deck_1' || element.name === 'Deck_2' || element.name === 'Deck_3'){
+        element.scale.set(x,x,x);
+      }
+    }
+  }
+  // remove -->
+  changeTruckSize2(trucks){
     if(trucks){
       for(const element of this.meshes){
         if(element.name === 'TrucksJoined_1' ||
@@ -152,6 +166,29 @@ export default class DeckFromFile extends THREE.Group {
           element.scale.set(1,1,1);
           this.smallTrucks = false;
         }
+      }
+    }
+  }
+  // <--
+  changeTruckSize(trucks){
+    let x;
+    if(trucks){
+      x = 0.95;
+      this.smallTrucks = true;
+    } else {
+      x = 1;
+      this.smallTrucks = false;
+    }
+    for(const element of this.meshes){
+      if(element.name === 'TrucksJoined_1' ||
+          element.name === 'TrucksJoined_2' ||
+          element.name === 'TrucksJoined_3' ||
+          element.name === 'TrucksJoined_4' ||
+          element.name === 'TrucksJoined_5' ||
+          element.name === 'TrucksJoined_6' ||
+          element.name === 'TrucksJoined_7' ||
+          element.name === 'DeckScrews'){
+        element.scale.set(x,x,x);
       }
     }
   }

@@ -22,3 +22,4 @@ export default class TrucksMaterialContainer{
     this.nutsMaterial.name = "OuterNutsM";
   }
 }
+
