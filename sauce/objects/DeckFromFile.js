@@ -133,7 +133,7 @@ export default class DeckFromFile extends THREE.Group {
     }
     for(const element of this.meshes){
       if(element.name === 'Deck_1' || element.name === 'Deck_2' || element.name === 'Deck_3'){
-        element.scale.set(x,x,x);
+        element.scale.set(x,1,x);
       }
     }
   }
